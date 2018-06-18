@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="us">
+
+<head>
+	<meta charset="utf-8">
+	<title>Padrões de UI - Interface do usuário</title>
+	<link href="jquery-ui.css" rel="stylesheet">
+	<style>
+		body {
+			font-family: "Trebuchet MS", sans-serif;
+			margin: 50px;
+		}
+
+		.demoHeaders {
+			margin-top: 2em;
+		}
+
+		#dialog-link {
+			padding: .4em 1em .4em 20px;
+			text-decoration: none;
+			position: relative;
+		}
+
+		#dialog-link span.ui-icon {
+			margin: 0 5px 0 0;
+			position: absolute;
+			left: .2em;
+			top: 50%;
+			margin-top: -8px;
+		}
+
+		#icons {
+			margin: 0;
+			padding: 0;
+		}
+
+		#icons li {
+			margin: 2px;
+			position: relative;
+			padding: 4px 0;
+			cursor: pointer;
+			float: left;
+			list-style: none;
+		}
+
+		#icons span.ui-icon {
+			float: left;
+			margin: 0 4px;
+		}
+
+		.fakewindowcontain .ui-widget-overlay {
+			position: absolute;
+		}
+
+		select {
+			width: 200px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>Padrões de UI - Componentes de interface do usuário</h1>
+
+	<div class="ui-widget">
+		<p>Exemplos de uso seguindo padrões de UI. Fonte:
+			<a href=http://ui-patterns.com/patterns>UI-Patterns.com</a>
+		</p>
+	</div>
+
+	<!-- Accordion -->
+	<h2 class="demoHeaders">Menu Accordion</h2>
+	<h3>Problema</h3>
+	<p>O usuário precisa navegar entre as seções principais de uma aplicação enquanto ainda pode navegar rapidamente para a subseção
+		de outra.</p>
+	<h3>Uso</h3>
+	<ul>
+		<li>Utilize quando quiser os beneficios do menu lateral mas não tiver espaço para listar todas as opções.</li>
+		<li>Use quando tiver mais de duas seções principais, cada uma com duas ou mais subseções.</li>
+		<li>Use quando tiver menos de 10 seções principais.</li>
+		<li>Use apenas quando você tiver dois níveis de navegação principal para mostrar.</li>
+	</ul>
+	<h3>Solução</h3>
+	<p>Cada título da seção possui um painel que ao clicar pode ser expandido vertical ou horizontalmente para mostrar as subseções.
+		Os menus verticais são os mais utilizados. A transição entre as opções pode ser feita com uma atualição da página ou uma
+		animação em Javascript. Quando uma seção é clicada ela deve ser expandida enquanto as outras são recolhidas.</p>
+	<h3>Exemplo</h3>
+	<div id="accordion">
+		<h3>Carros</h3>
+		<ul>
+			<li>BMW</li>
+			<li>Mercedes</li>
+			<li>Audi</li>
+			<li>Porshe</li>
+			<li>Volkswagen</li>
+			<li>Chevrolet</li>
+			<li>Fiat</li>
+			<li>Honda</li>
+			<li>Citröen</li>
+		</ul>
+		<h3>Bicicletas</h3>
+		<ul>
+			<li>Olympia</li>
+			<li>Lapierre</li>
+			<li>Megamo</li>
+			<li>Bridgestone</li>
+			<li>FSC</li>
+			<li>Motobecane</li>
+			<li>Merlin</li>
+			<li>Kross</li>
+			<li>Hoffmann</li>
+			<li>De Rosa</li>
+			<li>MMR</li>
+			<li>Kestrel</li>
+		</ul>
+		<h3>Motos</h3>
+		<ul>
+			<li>Honda</li>
+			<li>Suzuki</li>
+			<li>BMW</li>
+			<li>Harley</li>
+			<li>Kasysnk</li>
+			<li>Shineray</li>
+			<li>Yamaha</li>
+
+		</ul>
+	</div>
+
+
+
+	<!-- Autocomplete -->
+	<h2 class="demoHeaders">Autocomplete</h2>
+
+	<h3>Problema</h3>
+	<p>O usuário precisa de auxilio para reconhecer e se familiarizar com os termos utilizados na aplicação difíceis de lembrar
+		ou com a escrita não utilizada com frequência com facilidade.</p>
+	<h3>Uso</h3>
+	<ul>
+		<li>
+			Para ajudar em situações de ambigüidade, quando um termo possa estar escrito de diferentes maneiras.
+		</li>
+		<li>
+			Sugerir uma palavra já existente na aplicação por meio da digitação dos primeiras letras que a compõe. Por exemplo quando
+			o usuário não consegue soletrar a palavra
+			<i>"pterodáctilo"</i> mas se lembra das primeiras letras
+			<i>"pte"</i>.
+		</li>
+		<li>
+			Aumentar a eficiência/produtividade do usuário no preenchimento de algum formulário por exemplo.
+		</li>
+		<li>
+			Quando é necessário que as informações inseridas por todos usuários permaneçam com um padrão. Usuários podem inserir textos
+			em formatos e escritas diferentes.
+		</li>
+		<li>
+			Quando existir muitos elementos para se usar uma lista selecionável
+		</li>
+		<li>
+			Não usar quando precisar que o usuário tenha uma visão geral de todas as opções disponíveis na aplicação.
+		</li>
+	</ul>
+	<h3>Solução</h3>
+	<p>Sugestão de possiveis correspondencias para uma pesquisa no tempo de digitação do usuário. O campo deve ser preditivo quanto
+		mais texto no campo a lista de itens deve ser reduzida para os itens mais relevantes com o texto inserido. A lista deve
+		permitir que o usuário selecione o item desejado utilizando o clique do mouse ou as setas do teclado. Também deve conter
+		um limite padrão de 10 itens no máximo retornados com relevancia no que foi digitado. Pode agrupar itens em categorias.
+	</p>
+	<h3>Exemplo</h3>
+	<div>
+		<input id="autocomplete" title="digite &quot;a&quot;">
+	</div>
+
+	<!-- Tabs -->
+
+	<h2 class="demoHeaders">Navegação em Abas</h2>
+	<h3>Problema</h3>
+	<p>O conteúdo precisa ser dividido em seções e acessado usando uma estrutura de navegação simples que fornece uma indicação
+		clara da posição atual.</p>
+	<h3>Uso</h3>
+	<ul>
+		<li>Quando houver entre 2 a 9 seções de conteúdo que precisem de uma navegação simples.</li>
+		<li>Use quando os títulos das seções forem curtos.</li>
+		<li>Não use quando o conteúdo da seção conter um link de
+			<i>veja mais</i> e o resto do conteúdo ter que ser ocultado.
+		</li>
+		<li>Não use quando precisar mostrar informações especifícos do conteúdo da própria seção, para que não haja confusão em relação
+			ao conteúdo geral da página.</li>
+	</ul>
+	<h3>Solução</h3>
+	<p>Utilize uma barra horizontal que contenha as diferentes seções/categorias do site. Cada seção/categoria é representada por
+		uma guia que se parece com um botão. Opcionalmente pode conter uma barra inferior contendo subseções. A guia superior deve
+		se manter estática em todas as páginas às quais as guias se conectam. Deve manter a mesma estrutura entre as guias. Quando
+		utilizar subseções deve deixar claro quais as guias estão ativas no momento.</p>
+	<h3>Exemplo</h3>
+	<div id="tabs">
+		<ul>
+			<li>
+				<a href="#tabs-1">Primeira</a>
+			</li>
+			<li>
+				<a href="#tabs-2">Segunda</a>
+			</li>
+			<li>
+				<a href="#tabs-3">Terceira</a>
+			</li>
+		</ul>
+		<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+		<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem
+			non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+		<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat
+			vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+	</div>
+
+
+
+	<h2 class="demoHeaders">Modal</h2>
+	<h3>Problema</h3>
+	<p>O usuário precisa realizar uma interação até poder continuar visualizar a página atual.</p>
+	<h3>Uso</h3>
+	<ul>
+		<li>Quando quiser interromper a atividade atual do usuário e ter a total atenção dele para algo importante.</li>
+		<li>Não utilizar para mostrar mensagens de erro, sucesso ou aviso.</li>
+	</ul>
+	<h3>Solução</h3>
+	<p>Utilize um modal no qual os usuários não possam interagir com o resto da aplicação enquanto não interagirem ou descartem
+		o modal. O título deve ser correspondente com o botão/link de chamada para aumentar a sensação de familiaridade. Certifique-se
+		que o usuário saiba qual foi a ação que disparou o modal. Deixe visível as opções para que o usuário possa fechar, use
+		métodos que ele já está familiarizado como um botão no canto superior direito "X" ou um botão fechar/cancelar na parte
+		inferior da janela, a tecla "ESC" e o clique fora do modal também é uma boa prática. </p>
+	<h3>Exemplo</h3>
+	<p>
+		<button id="dialog-link" class="ui-button ui-corner-all ui-widget">
+			<span class="ui-icon ui-icon-newwin"></span>Quero adotar um cão
+		</button>
+	</p>
+
+
+	<!-- ui-dialog -->
+	<div id="dialog" title="Adote um catioro">
+		<img src="https://www.promoview.com.br/uploads/2016/06/images/banner_teste_junino.jpg">
+	</div>
+
+	<script src="external/jquery/jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	<script>
+
+		$("#accordion").accordion();
+
+
+
+		var availableTags = [
+			"Usabilidade",
+			"UI Pattern",
+			"Padrão de interface",
+			"IHC",
+			"Interface humano computador",
+			"IFTM",
+			"Sistemas para Internet",
+			"pterodáctilo"
+		];
+		$("#autocomplete").autocomplete({
+			source: availableTags
+		});
+
+
+		$("#tabs").tabs();
+
+
+
+		$("#dialog").dialog({
+			autoOpen: false,
+			width: 860,
+			maxWidth: "860px"
+		});
+
+		// Link to open the dialog
+		$("#dialog-link").click(function (event) {
+			$("#dialog").dialog("open");
+			event.preventDefault();
+		});
+
+
+
+
+
+
+
+
+		$("#menu").menu();
+
+
+
+		// Hover states on the static widgets
+		$("#dialog-link, #icons li").hover(
+			function () {
+				$(this).addClass("ui-state-hover");
+			},
+			function () {
+				$(this).removeClass("ui-state-hover");
+			}
+		);
+	</script>
+</body>
+
+</html>
